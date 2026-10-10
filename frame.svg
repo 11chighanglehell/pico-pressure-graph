@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Display frame for LightBurn. Black = cut, blue = engrave.
+     Scale: 1 user unit = 0.2024 mm (grid squares in the sketch = 10 mm). -->
+<svg xmlns="http://www.w3.org/2000/svg" width="205.1mm" height="148.4mm" viewBox="16 23 1013 733">
+  <g id="cut" fill="none" stroke="#000000" stroke-width="0.5">
+    <rect x="26" y="33" width="993" height="713" rx="14" ry="14"/>
+    <rect x="119" y="120" width="807" height="481" rx="6" ry="6"/>
+    <circle cx="122" cy="76" r="8"/>
+    <circle cx="909" cy="76" r="8"/>
+    <circle cx="122" cy="684" r="8"/>
+    <circle cx="909" cy="684" r="8"/>
+    <rect x="71" y="405" width="14" height="48"/>
+    <rect x="71" y="552" width="14" height="49"/>
+    <rect x="961" y="405" width="14" height="48"/>
+    <rect x="961" y="552" width="14" height="49"/>
+  </g>
+  <g id="engrave" fill="none" stroke="#0000ff" stroke-width="1.5" font-family="Segoe UI, Arial, sans-serif" font-size="40">
+    <text x="150" y="725">- Range +</text>
+    <text x="333" y="725">Alt (&#916;<tspan font-size="16">hold</tspan>&#8711;)</text>
+    <!-- Aviation / weather motif -->
+    <g id="motif" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M170 108H875M170 94V108M875 94V108"/>
+      <path d="M170 108v-14M184.1 108v-7M198.2 108v-7M212.3 108v-7M226.4 108v-7M240.5 108v-14M254.6 108v-7M268.7 108v-7M282.8 108v-7M296.9 108v-7M311.0 108v-14M325.1 108v-7M339.2 108v-7M353.3 108v-7M367.4 108v-7M381.5 108v-14M395.6 108v-7M409.7 108v-7M423.8 108v-7M437.9 108v-7M452.0 108v-14M466.1 108v-7M480.2 108v-7M494.3 108v-7M508.4 108v-7M522.5 108v-14M536.6 108v-7M550.7 108v-7M564.8 108v-7M578.9 108v-7M593.0 108v-14M607.1 108v-7M621.2 108v-7M635.3 108v-7M649.4 108v-7M663.5 108v-14M677.6 108v-7M691.7 108v-7M705.8 108v-7M719.9 108v-7M734.0 108v-14M748.1 108v-7M762.2 108v-7M776.3 108v-7M790.4 108v-7M804.5 108v-14M818.6 108v-7M832.7 108v-7M846.8 108v-7M860.9 108v-7M875.0 108v-14"/>
+      <text x="522" y="80" font-size="34" letter-spacing="6" text-anchor="middle" stroke="none" fill="#0000ff">SEA-LEVEL PRESSURE</text>
+      <path d="M100 140V390"/>
+      <path d="M100 140.0h-18M100 152.5h-9M100 165.0h-9M100 177.5h-9M100 190.0h-9M100 202.5h-18M100 215.0h-9M100 227.5h-9M100 240.0h-9M100 252.5h-9M100 265.0h-18M100 277.5h-9M100 290.0h-9M100 302.5h-9M100 315.0h-9M100 327.5h-18M100 340.0h-9M100 352.5h-9M100 365.0h-9M100 377.5h-9M100 390.0h-18"/>
+      <text transform="translate(62 265) rotate(-90)" font-size="20" letter-spacing="3" text-anchor="middle" stroke="none" fill="#0000ff">CIRRUS · CUMULUS</text>
+      <path fill="#0000ff" d="M973 150C977 150 979 160 979 175L979 225L1008 262L1008 274L979 258L979 305L992 322L992 330L973 324L954 330L954 322L967 305L967 258L938 274L938 262L967 225L967 175C967 160 969 150 973 150Z"/>
+      <path d="M973 345V395M958 365L973 395L988 365"/>
+      <path d="M200 690a22 22 0 0 1 10 -40a32 32 0 0 1 60 -12a28 28 0 0 1 50 14a22 22 0 0 1 10 38Z"/>
+      <path d="M450 640q29 -16 58 0t58 0t58 0M450 660q29 -16 58 0t58 0t58 0M450 680q29 -16 58 0t58 0t58 0"/>
+      <circle cx="790" cy="665" r="46"/>
+      <circle cx="790" cy="665" r="38"/>
+      <path d="M790 625L798 657L830 665L798 673L790 705L782 673L750 665L782 657Z"/>
+      <path d="M790 619v-8M790 711v8M744 665h-8M836 665h8"/>
+    </g>
+  </g>
+</svg>
