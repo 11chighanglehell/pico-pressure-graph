@@ -1,3 +1,5 @@
 .venv/
 __pycache__/
 *.pyc
+pressure_history.csv
+pressure_history.csv.tmp

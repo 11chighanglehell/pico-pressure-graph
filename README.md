@@ -34,9 +34,15 @@ adapter rather than assuming it plugs directly onto the Pico.
 
 ## Run
 
-Copy `config.py`, `graph.py`, `bmp280.py`, `epd2in13_v4.py`, and `main.py` to
-the Pico (for example with `py -m mpremote connect COMx fs cp file.py :file.py`).
+Copy `config.py`, `graph.py`, `history.py`, `bmp280.py`, `epd2in13_v4.py`, and
+`main.py` to the Pico (for example with
+`py -m mpremote connect COMx fs cp file.py :file.py`).
 `main.py` reads the BMP280 every `SAMPLE_INTERVAL_SECONDS`, draws the history
 graph, and refreshes the display. `epd2in13_v4.py` is Waveshare's official
 [Pico V4 driver](https://github.com/waveshareteam/Pico_ePaper_Code/blob/main/python/Pico_ePaper-2.13_V4.py),
 modified only to use the SPI and pin settings in `config.py`.
+
+Pressure samples are saved in `pressure_history.csv` on the Pico and restored
+after a restart. The file is compacted periodically and retains up to
+`HISTORY_SAMPLES` readings. The graph uses the configured sample interval for
+spacing, so time while the Pico is powered off is not represented.
