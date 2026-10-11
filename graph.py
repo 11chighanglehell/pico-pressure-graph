@@ -33,6 +33,27 @@ def _title_bar(image, x1, y1, x2, y2, text):
     image.text(text, x1 + 4, y1 + 1, 1)
 
 
+def _big_text(image, text, x, y, x_scale, y_scale):
+    """Draw text with the 8x8 font enlarged; '.' is drawn narrow to save width."""
+    glyph = framebuf.FrameBuffer(bytearray(8), 8, 8, framebuf.MONO_HLSB)
+    for char in text:
+        if char == ".":
+            image.fill_rect(x + 1, y + 7 * y_scale - x_scale, x_scale + 1, x_scale + 1, 0)
+            x += x_scale * 3
+            continue
+        glyph.fill(1)
+        glyph.text(char, 0, 0, 0)
+        for gy in range(8):
+            for gx in range(8):
+                if not glyph.pixel(gx, gy):
+                    image.fill_rect(x + gx * x_scale, y + gy * y_scale, x_scale, y_scale, 0)
+        x += 8 * x_scale
+
+
+def _big_text_width(text, x_scale):
+    return sum(x_scale * 3 if char == "." else 8 * x_scale for char in text)
+
+
 def render(samples_hpa, interval_seconds, history_samples, width, height, elevation_m):
     """Return a 1-bit framebuffer from station-pressure samples in hPa."""
     stride = (width + 7) // 8
@@ -55,8 +76,9 @@ def render(samples_hpa, interval_seconds, history_samples, width, height, elevat
         top = TOP_MARGIN + row * CELL_STEP
         image.rect(CELL_LEFT, top, CELL_RIGHT - CELL_LEFT + 1, CELL_HEIGHT, 0)
         _title_bar(image, CELL_LEFT, top, CELL_RIGHT, top + 10, label)
-        text = "---" if value is None else "{:.2f} in".format(value / HPA_PER_INHG)
-        image.text(text, CELL_LEFT + 5, top + 19, 0)
+        text = "---" if value is None else "{:.2f}".format(value / HPA_PER_INHG)
+        text_x = CELL_LEFT + (CELL_RIGHT - CELL_LEFT + 1 - _big_text_width(text, 2)) // 2
+        _big_text(image, text, text_x, top + 12, 2, 3)
 
     graph_left = CELL_RIGHT + 6
     graph_right = width - 3
